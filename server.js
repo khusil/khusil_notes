@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-app.get('/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     request.sendfile(__dirname + '/public/notes.html')
 });
 
@@ -22,7 +22,7 @@ app.get('/api/notes', (req, res) => {
   });
   
   
-  app.post('/notes', (req, res) => {
+  app.post('/api/notes', (req, res) => {
     const newNote = req.body; 
     newNote.id = uuid.v4(); 
     fs.readFile(__dirname + '/db/db.json', 'utf8', (err, data) => { 
